@@ -7,7 +7,7 @@ function ProductCard({ id, name, price, description }) {
 
 
     return (
-        <div className="h-96 relative">
+        <div className="h-[400px] relative">
             {isLiked ? <Heart className="absolute top-4 right-4 cursor-pointer" fill="black" onClick={() => setIsLiked(!isLiked)} /> : <Heart className="absolute top-4 right-4 cursor-pointer" onClick={() => setIsLiked(!isLiked)} />}
             <div className="h-60 border rounded-xl">
 
