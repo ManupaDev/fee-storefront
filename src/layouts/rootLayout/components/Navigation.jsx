@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../providers/cartContext";
 
 function Navigation() {
+
+    const { cart } = useContext(CartContext);
+
     return (
         <nav className="flex items-center justify-between py-8">
             <div className=" flex items-center gap-x-16 ">
@@ -11,7 +16,7 @@ function Navigation() {
                 </div>
             </div>
             <div>
-                <Link className="font-medium text-lg" to="/cart">Cart</Link>
+                <Link className="font-medium text-lg" to="/cart">{cart.length} Cart</Link>
             </div>
         </nav>);
 }

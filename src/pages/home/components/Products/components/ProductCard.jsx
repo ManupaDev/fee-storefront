@@ -1,10 +1,11 @@
 import { Heart } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../../../providers/cartContext";
 
 function ProductCard({ id, name, price, description }) {
 
     const [isLiked, setIsLiked] = useState(false);
-
+    const { updateCart } = useContext(CartContext);
 
     return (
         <div className="h-[400px] relative">
@@ -19,7 +20,9 @@ function ProductCard({ id, name, price, description }) {
                 </div>
                 <p>{description}</p>
                 <div className="mt-2">
-                    <button className="border border-black px-4 py-1 text-lg rounded-lg mt-2 font-semibold">Add To Cart</button>
+                    <button className="border border-black px-4 py-1 text-lg rounded-lg mt-2 font-semibold"
+                        onClick={() => updateCart({ id, name, price, description })}
+                    >Add To Cart</button>
                 </div>
             </div>
         </div>);
