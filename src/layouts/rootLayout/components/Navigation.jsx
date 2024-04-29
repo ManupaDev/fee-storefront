@@ -2,11 +2,16 @@ import { Link } from "react-router-dom";
 
 function Navigation() {
     return (
-        <nav className="flex items-center">
-            <Link to="/">OO</Link>
+        <nav className="flex items-center justify-between py-8">
+            <div className=" flex items-center gap-x-16 ">
+                <Link className="font-medium" to="/">OO</Link>
+                <div className="flex items-center gap-x-4">
+                    <Link className="font-medium" to="/">Home</Link>
+                    <Link className="font-medium" to="/categores">Categories</Link>
+                </div>
+            </div>
             <div>
-                <Link to="/">Home</Link>
-                <Link to="/">Categories</Link>                
+                <Link className="font-medium" to="/cart">Cart</Link>
             </div>
         </nav>);
 }
