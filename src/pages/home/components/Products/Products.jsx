@@ -1,18 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Tab from "./components/Tab";
+import { getAllProducts } from "../../../../services/api/products";
 
 function Products() {
-    const products = [
-        { categoryId: "1", id: "1", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "1", id: "2", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "1", id: "3", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "2", id: "4", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "2", id: "5", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "3", id: "6", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "4", id: "7", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-        { categoryId: "4", id: "8", name: "AirPods Max", price: "458.00", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, sequi?" },
-    ];
+
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        getAllProducts().then(data => {
+            setProducts(data)
+        }).catch((e) => {
+            console.log(e)
+            setIsError(true);
+            setError(e.message);
+        }).finally(() => setIsLoading(false));
+    }, []);
+
+
     const categories = [{ id: "ALL", name: "All" }, { id: "1", name: "Headphones" }, { id: "2", name: "Speakers" }, { id: "3", name: "Smart Watch" }, { id: "4", name: "Mobile Phone" }];
 
     const [selectedCategory, setSelectedCategory] = useState("ALL");
@@ -23,6 +31,48 @@ function Products() {
 
     const filteredProducts = selectedCategory === "ALL" ? products : products.filter(el => el.categoryId === selectedCategory);
 
+    if (isLoading) {
+        return (
+            <section className="py-8">
+                <h1 className="text-4xl font-semibold">Our Top Products</h1>
+                <div className="border mt-4"></div>
+                <div className="py-8">
+                    <div>
+                        <div className="flex items-center gap-x-4">
+                            {
+                                categories.map((el) =>
+                                    (<Tab key={el.id} category={{ id: el.id, name: el.name }} selectedCategory={selectedCategory} handleTabClick={handleTabClick} />))
+                            }
+                        </div>
+                        <div className="grid grid-cols-4 gap-6 border-black mt-4">
+                            <h1>Loading...</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>);
+    }
+
+    if (isError) {
+        return (
+            <section className="py-8">
+                <h1 className="text-4xl font-semibold">Our Top Products</h1>
+                <div className="border mt-4"></div>
+                <div className="py-8">
+                    <div>
+                        <div className="flex items-center gap-x-4">
+                            {
+                                categories.map((el) =>
+                                    (<Tab key={el.id} category={{ id: el.id, name: el.name }} selectedCategory={selectedCategory} handleTabClick={handleTabClick} />))
+                            }
+                        </div>
+                        <div className="grid grid-cols-4 gap-6 border-black mt-4">
+                            <h1 className="text-red-500">{`Error: ${error}`}</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>);
+    }
+
     return (
         <section className="py-8">
             <h1 className="text-4xl font-semibold">Our Top Products</h1>
@@ -32,12 +82,12 @@ function Products() {
                     <div className="flex items-center gap-x-4">
                         {
                             categories.map((el) =>
-                                (<Tab category={{ id: el.id, name: el.name }} selectedCategory={selectedCategory} handleTabClick={handleTabClick} />))
+                                (<Tab key={el.id} category={{ id: el.id, name: el.name }} selectedCategory={selectedCategory} handleTabClick={handleTabClick} />))
                         }
                     </div>
                     <div className="grid grid-cols-4 gap-6 border-black mt-4">
                         {
-                            filteredProducts.map((product) => (<ProductCard {...product} />))
+                            filteredProducts.map((el) => (<ProductCard key={el.id} {...el} />))
                         }
                     </div>
                 </div>
