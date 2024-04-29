@@ -1,9 +1,14 @@
 import { Heart } from "lucide-react";
+import { useState } from "react";
 
 function ProductCard({ id, name, price, description }) {
+
+    const [isLiked, setIsLiked] = useState(false);
+
+
     return (
         <div className="h-96 relative">
-            <Heart className="absolute top-4 right-4" />
+            {isLiked ? <Heart className="absolute top-4 right-4 cursor-pointer" fill="black" onClick={() => setIsLiked(!isLiked)} /> : <Heart className="absolute top-4 right-4 cursor-pointer" onClick={() => setIsLiked(!isLiked)} />}
             <div className="h-60 border rounded-xl">
 
             </div>
