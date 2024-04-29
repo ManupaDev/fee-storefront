@@ -7,7 +7,7 @@ function Navigation() {
                 <Link className="font-medium" to="/">OO</Link>
                 <div className="flex items-center gap-x-4">
                     <Link className="font-medium" to="/">Home</Link>
-                    <Link className="font-medium" to="/categores">Categories</Link>
+                    <Link className="font-medium" to="/shop">Shop</Link>
                 </div>
             </div>
             <div>
