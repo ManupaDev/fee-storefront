@@ -4,14 +4,14 @@ function Navigation() {
     return (
         <nav className="flex items-center justify-between py-8">
             <div className=" flex items-center gap-x-16 ">
-                <Link className="font-medium" to="/">OO</Link>
+                <Link className="font-medium text-lg" to="/">OO</Link>
                 <div className="flex items-center gap-x-4">
-                    <Link className="font-medium" to="/">Home</Link>
-                    <Link className="font-medium" to="/shop">Shop</Link>
+                    <Link className="font-medium text-lg" to="/">Home</Link>
+                    <Link className="font-medium text-lg" to="/shop">Shop</Link>
                 </div>
             </div>
             <div>
-                <Link className="font-medium" to="/cart">Cart</Link>
+                <Link className="font-medium text-lg" to="/cart">Cart</Link>
             </div>
         </nav>);
 }
