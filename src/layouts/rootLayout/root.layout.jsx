@@ -14,7 +14,7 @@ function RootLayout() {
 
     return (
         <CartContext.Provider value={{ cart, updateCart }}>
-            <main>
+            <main className="bg-white inter">
                 <div className="px-32">
                     <Navigation />
                     <Outlet />
