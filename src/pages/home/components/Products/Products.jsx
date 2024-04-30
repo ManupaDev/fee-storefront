@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Tab from "./components/Tab";
 import { getAllProducts } from "../../../../services/api/products";
+import { categories } from "./data/categories";
 
 function Products() {
 
@@ -14,14 +15,10 @@ function Products() {
         getAllProducts().then(data => {
             setProducts(data)
         }).catch((e) => {
-            console.log(e)
             setIsError(true);
             setError(e.message);
         }).finally(() => setIsLoading(false));
     }, []);
-
-
-    const categories = [{ id: "ALL", name: "All" }, { id: "1", name: "Headphones" }, { id: "2", name: "Speakers" }, { id: "3", name: "Smart Watch" }, { id: "4", name: "Mobile Phone" }];
 
     const [selectedCategory, setSelectedCategory] = useState("ALL");
 
@@ -44,7 +41,7 @@ function Products() {
                                     (<Tab key={el.id} category={{ id: el.id, name: el.name }} selectedCategory={selectedCategory} handleTabClick={handleTabClick} />))
                             }
                         </div>
-                        <div className="grid grid-cols-4 gap-6 border-black mt-4">
+                        <div className="grid grid-cols-4 gap-8 border-black mt-4">
                             <h1>Loading...</h1>
                         </div>
                     </div>

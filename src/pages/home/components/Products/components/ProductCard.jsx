@@ -2,25 +2,25 @@ import { Heart } from "lucide-react";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../../../providers/cartContext";
 
-function ProductCard({ id, name, price, description }) {
+function ProductCard({ id, name, price, description,image }) {
 
     const [isLiked, setIsLiked] = useState(false);
     const { updateCart } = useContext(CartContext);
 
     return (
-        <div className="h-[400px] relative">
-            {isLiked ? <Heart className="absolute top-4 right-4 cursor-pointer" fill="black" onClick={() => setIsLiked(!isLiked)} /> : <Heart className="absolute top-4 right-4 cursor-pointer" onClick={() => setIsLiked(!isLiked)} />}
-            <div className="h-60 border rounded-xl">
-
+        <div className="h-[432px] relative">
+            {isLiked ? <Heart className="absolute top-4 right-4 cursor-pointer z-10 text-red-500 fill-red-500" onClick={() => setIsLiked(!isLiked)} /> : <Heart className="absolute top-4 right-4 cursor-pointer z-10 text-red-500 " onClick={() => setIsLiked(!isLiked)} />}
+            <div className={`h-64 rounded-xl bg-[#f4f8f9] relative`}>
+                <img src={image} alt="" className="w-full h-full object-cover"/>
             </div>
             <div className="mt-4">
                 <div className=" flex items-center justify-between">
                     <span className="block text-2xl font-semibold">{name}</span>
                     <span className="block font-semibold">${price}</span>
                 </div>
-                <p>{description}</p>
+                <p className="text-sm">{description}</p>
                 <div className="mt-2">
-                    <button className="border border-black px-4 py-1 text-lg rounded-lg mt-2 font-semibold"
+                    <button className="border-2 border-black px-4 py-1 text-lg rounded-lg mt-2 font-medium hover:bg-black hover:text-white transition"
                         onClick={() => updateCart({ id, name, price, description })}
                     >Add To Cart</button>
                 </div>

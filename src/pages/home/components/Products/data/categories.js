@@ -1,0 +1,1 @@
+export const categories = [{ id: "ALL", name: "All" }, { id: "1", name: "Headphones" }, { id: "2", name: "Earbuds" }, { id: "3", name: "Speakers" }, { id: "4", name: "Mobile Phones" }, { id: "5", name: "Smart Watches" }];
