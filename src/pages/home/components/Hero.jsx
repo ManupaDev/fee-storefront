@@ -12,7 +12,9 @@ function Hero() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quos suscipit est autem quia? Voluptatem?</p>
                     <Link to="/shop" className="px-4 py-2 text-white font-medium bg-black rounded w-fit">Shop Now</Link>
                 </div>
-                <div className="border border-black"></div>
+                <div className=" relative">
+                    <img src="/assets/hero/hero.jpg" alt="" className="w-full h-full object-cover"/>
+                </div>
             </div>
         </section>
     );

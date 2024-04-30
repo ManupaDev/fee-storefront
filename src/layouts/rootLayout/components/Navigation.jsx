@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../providers/cartContext";
+import { ShoppingCart } from "lucide-react";
 
 function Navigation() {
 
@@ -16,7 +17,13 @@ function Navigation() {
                 </div>
             </div>
             <div>
-                <Link to="/cart">{cart.length} Cart</Link>
+                <Link to="/cart" className="flex items-center gap-x-4 relative">
+                    <p className="text-lg font-semibold">{cart.length}</p>
+                    <div className="flex items-center gap-x-2">
+                        <ShoppingCart />
+                        Cart
+                    </div>
+                </Link>
             </div>
         </nav>);
 }

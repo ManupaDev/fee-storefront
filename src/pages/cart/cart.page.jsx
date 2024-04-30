@@ -8,7 +8,7 @@ function CartPage() {
     return (
         <div>
             <div className="min-h-screen">
-                <h1 className="text-3xl font-semibold">Cart Page</h1>
+                <h1 class="text-4xl font-semibold">Your Shopping Cart</h1>
                 <div className="mt-4 grid gap-y-4">
                     {
                         cart.map((el) => {

@@ -7,7 +7,7 @@ function Footer() {
             <div className="col-span-1">
                 <Link className="font-semibold text-2xl" to="/">OO</Link>
                 <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reprehenderit veniam omnis, placeat iste tempore.</p>
-                <div className="flex items-center gap-x-16 mt-4">
+                <div className="flex items-center gap-x-4 mt-4">
                     <img src="/assets/footer/icons8-instagram-96.png" className="block w-12 h-12" alt="" />
                     <img src="/assets/footer/icons8-linkedin-96.png" className="block w-12 h-12" alt="" />
                     <img src="/assets/footer/icons8-tiktok-96.png" className="block w-12 h-12" alt="" />
