@@ -21,7 +21,7 @@ function CartPage() {
                                         <h1 className="text-2xl font-semibold">{el.name}</h1>
                                         <p>{el.description}</p>
                                         <span className="block text-2xl font-semibold mt-2">$ {el.price}</span>
-                                        <p className="mt-4 text-lg ">Amount: {el.count}</p>
+                                        <p className="mt-4 text-lg">Amount: {el.count}</p>
                                     </div>
                                 </div>
                             );
