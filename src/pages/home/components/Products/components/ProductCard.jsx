@@ -21,7 +21,7 @@ function ProductCard({ id, name, price, description,image }) {
                 <p className="text-sm">{description}</p>
                 <div className="mt-2">
                     <button className="border-2 border-black px-4 py-1 text-lg rounded-lg mt-2 font-medium hover:bg-black hover:text-white transition"
-                        onClick={() => updateCart({ id, name, price, description })}
+                        onClick={() => updateCart({ id, name, price, description, image })}
                     >Add To Cart</button>
                 </div>
             </div>

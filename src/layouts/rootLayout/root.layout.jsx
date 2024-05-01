@@ -9,7 +9,10 @@ function RootLayout() {
     const [cart, setCart] = useState([]);
 
     const updateCart = (item) => {
-        setCart([...cart, item]);
+        if (cart.find(el => el.id === item.id)) {
+            return setCart(cart.map(el => el.id === item.id ? { ...el, count: el.count + 1 } : { ...el }))
+        }
+        return setCart([...cart, { ...item, count: 1 }]);
     }
 
     return (
