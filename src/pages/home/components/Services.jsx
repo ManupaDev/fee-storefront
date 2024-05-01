@@ -19,7 +19,7 @@ function ServiceCard({ image, title, subtitle }) {
             <div className="h-48">
                 <img src={image} alt="" className="rounded-lg rounded-b-none h-full w-full object-cover" />
             </div>
-            <div className="px-2 py-4">
+            <div className="p-4">
                 <h2 className="text-2xl font-medium">{title}</h2>
                 <p className="text-sm">{subtitle}</p>
             </div>
