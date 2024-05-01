@@ -10,7 +10,7 @@ function Navigation() {
     return (
         <nav className="flex items-center justify-between py-8">
             <div className=" flex items-center gap-x-16 ">
-                <Link className="font-medium" to="/">OO</Link>
+                <Link className="font-semibold text-3xl" to="/">Mebius</Link>
                 <div className="flex items-center gap-x-4">
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>

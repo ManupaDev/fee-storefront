@@ -5,7 +5,7 @@ function Footer() {
         <section className="py-16 grid grid-cols-3 px-32 gap-x-16 bg-[#f4f9ff]">
 
             <div className="col-span-1">
-                <Link className="font-semibold text-2xl" to="/">OO</Link>
+                <Link className="font-semibold text-3xl" to="/">Mebius</Link>
                 <p className="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque reprehenderit veniam omnis, placeat iste tempore.</p>
                 <div className="flex items-center gap-x-4 mt-4">
                     <img src="/assets/footer/icons8-instagram-96.png" className="block w-12 h-12" alt="" />
