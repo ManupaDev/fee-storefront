@@ -16,15 +16,19 @@ function Navigation() {
                     <Link to="/shop">Shop</Link>
                 </div>
             </div>
-            <div>
-                <Link to="/cart" className="flex items-center gap-x-4 relative">
-                    <p className="text-lg">{cart.reduce((acc, el) => acc += el.count, 0)}</p>
-                    <div className="flex items-center gap-x-2">
-                        <ShoppingCart />
-                        Cart
-                    </div>
-                </Link>
+            <div className="flex items-center gap-x-8">
+                <div>
+                    <Link to="/cart" className="flex items-center gap-x-4 relative">
+                        <p className="text-lg">{cart.reduce((acc, el) => acc += el.count, 0)}</p>
+                        <div className="flex items-center gap-x-2">
+                            <ShoppingCart />
+                            Cart
+                        </div>
+                    </Link>
+                </div>
+                <p>Hi, Manupa</p>
             </div>
+
         </nav>);
 }
 
