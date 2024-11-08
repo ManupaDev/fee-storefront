@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const CartContext = createContext({ cart: [], updateCart: () => { } });
+export const CartContext = createContext({ cart: [], updateCart: () => { }, theme: "light" });
